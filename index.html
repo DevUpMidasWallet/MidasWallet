@@ -104,14 +104,12 @@
 
         auth.onAuthStateChanged(user => {
             if (user) {
-                // El usuario está logueado
                 authButtonsContainer.classList.add('hidden');
                 userProfileMenuContainer.classList.remove('hidden');
                 if (user.photoURL) {
                     userPhoto.src = user.photoURL;
                 }
             } else {
-                // El usuario no está logueado
                 authButtonsContainer.classList.remove('hidden');
                 userProfileMenuContainer.classList.add('hidden');
             }
@@ -131,7 +129,6 @@
 
         logoutButton.addEventListener('click', async () => {
             await auth.signOut();
-            // La función onAuthStateChanged se encargará de ocultar el menú y mostrar los botones de inicio de sesión.
         });
     </script>
 </body>
