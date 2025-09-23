@@ -14,9 +14,13 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="Styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
   </head>
   <body>
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
       <a href="index.html" class="navbar-logo">
         <img
           src="Recursos/ic_launcher_round.webp"
@@ -24,20 +28,6 @@
           class="logo"
         />
       </a>
-      <div class="navbar-links">
-        <a href="Politicas.html">
-          <button class="nav-btn policies-nav-btn">Políticas</button>
-        </a>
-        <a href="Recursos/app-debug.apk" download="app-debug.apk">
-          <button class="nav-btn download-nav-btn">Descargar APK</button>
-        </a>
-        <a href="InicioSesion.html">
-          <button class="nav-btn">Iniciar Sesión</button>
-        </a>
-        <a href="Registrarse.html">
-          <button class="nav-btn">Registrarse</button>
-        </a>
-      </div>
     </nav>
     <main>
       <h1>Políticas y Términos de Uso</h1>
@@ -157,7 +147,102 @@
     <footer>
       <p>Derechos reservados 2025 DevUp©</p>
     </footer>
-    <script>
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+      import {
+        getAuth,
+        onAuthStateChanged,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyBxIAoBbCAY67vWVBWqosyqZrco0br5FYg",
+        authDomain: "midaswallet-b5bf0.firebaseapp.com",
+        projectId: "midaswallet-b5bf0",
+        storageBucket: "midaswallet-b5bf0.firebasestorage.app",
+        messagingSenderId: "241859863208",
+        appId: "1:241859863208:web:4ec137b9e95bf991d8189d",
+        measurementId: "G-HZ0WY0K344",
+      };
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const navbar = document.getElementById("navbar");
+      onAuthStateChanged(auth, (user) => {
+        navbar.innerHTML = "";
+        if (user) {
+          navbar.innerHTML = `
+<a href="index.html" class="navbar-logo">
+<img src="Recursos/ic_launcher_round.webp" alt="Logo MidasWallet" class="logo">
+</a>
+<div class="navbar-links">
+<a href="Politicas.html">
+<button class="nav-btn policies-nav-btn">Políticas</button>
+</a>
+<a href="Recursos/app-debug.apk" download>
+<button class="nav-btn download-nav-btn">Descargar APK</button>
+</a>
+</div>
+<div class="user-profile-menu-container">
+<button class="nav-btn profile-btn" id="user-profile-btn">
+<img id="user-photo" src="${
+            user.photoURL ? user.photoURL : "Recursos/user.png"
+          }" alt="Foto de perfil" class="profile-photo">
+</button>
+<div class="dropdown-menu" id="dropdown-menu">
+<a href="dashboard.html" class="menu-item">
+<i class="fas fa-user-circle"></i>Perfil
+</a>
+<a href="#" id="logout-button" class="menu-item">
+<i class="fas fa-sign-out-alt"></i>Cerrar sesión
+</a>
+</div>
+</div>
+`;
+          document
+            .getElementById("user-profile-btn")
+            .addEventListener("click", (event) => {
+              event.stopPropagation();
+              document.getElementById("dropdown-menu").classList.toggle("show");
+            });
+          window.addEventListener("click", (event) => {
+            const dropdownMenu = document.getElementById("dropdown-menu");
+            const userProfileBtn = document.getElementById("user-profile-btn");
+            if (
+              dropdownMenu &&
+              userProfileBtn &&
+              !userProfileBtn.contains(event.target) &&
+              !dropdownMenu.contains(event.target)
+            ) {
+              dropdownMenu.classList.remove("show");
+            }
+          });
+          document
+            .getElementById("logout-button")
+            .addEventListener("click", async () => {
+              await signOut(auth);
+              window.location.href = "InicioSesion.html";
+            });
+        } else {
+          navbar.innerHTML = `
+<a href="index.html" class="navbar-logo">
+<img src="Recursos/ic_launcher_round.webp" alt="Logo MidasWallet" class="logo">
+</a>
+<div class="navbar-links">
+<a href="Politicas.html">
+<button class="nav-btn policies-nav-btn">Políticas</button>
+</a>
+<a href="Recursos/app-debug.apk" download>
+<button class="nav-btn download-nav-btn">Descargar APK</button>
+</a>
+<a href="InicioSesion.html">
+<button class="nav-btn">Iniciar Sesión</button>
+</a>
+<a href="Registrarse.html">
+<button class="nav-btn">Registrarse</button>
+</a>
+</div>
+`;
+        }
+      });
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -177,3 +262,4 @@
     </script>
   </body>
 </html>
+
