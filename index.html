@@ -1,221 +1,138 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="MidasWallet: Ayuda a gestionar tus finanzas personales con tecnología avanzada y un enfoque centrado en el usuario. ¡Descarga el APK!"
-    />
-    <title>MidasWallet</title>
-    <link
-      rel="icon"
-      href="Recursos/ic_launcher_round.webp"
-      type="image/x-icon"
-    />
-    <link rel="stylesheet" href="Styles.css" />
-  </head>
-  <body>
-    <header class="hidden-element"></header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MidasWallet - Inicio</title>
+    <link rel="icon" href="Recursos/ic_launcher_round.webp" type="image/x-icon">
+    <link rel="stylesheet" href="Styles.css">
+</head>
+<body>
     <nav class="navbar">
-      <a href="index.html" class="navbar-logo">
-        <img
-          src="Recursos/ic_launcher_round.webp"
-          alt="Logo MidasWallet"
-          class="logo"
-        />
-      </a>
-      <div class="navbar-links">
-        <a href="Politicas.html">
-          <button class="nav-btn policies-nav-btn">Políticas</button>
+        <a href="index.html" class="navbar-logo">
+            <img src="Recursos/ic_launcher_round.webp" alt="Logo MidasWallet" class="logo">
         </a>
-        <a href="InicioSesion.html" id="login-link">
-          <button class="nav-btn">Iniciar Sesión</button>
-        </a>
-        <a href="Registrarse.html" id="signup-link">
-          <button class="nav-btn">Registrarse</button>
-        </a>
-        <button
-          id="user-profile-btn"
-          class="nav-btn profile-btn"
-          style="display: none"
-        >
-          <img
-            id="user-photo"
-            src=""
-            alt="Foto de perfil"
-            class="profile-photo"
-          />
-        </button>
-      </div>
+        <div class="auth-buttons-container" id="auth-buttons-container">
+            <a href="InicioSesion.html" class="nav-btn policies-nav-btn">Iniciar Sesión</a>
+            <a href="Registrarse.html" class="nav-btn">Registrarse</a>
+        </div>
+        <div class="user-profile-menu-container hidden" id="user-profile-menu-container">
+            <button class="user-profile-button" id="user-profile-button">
+                <img id="user-photo" src="Recursos/default-user.png" alt="Foto de perfil">
+            </button>
+            <div class="dropdown-menu" id="dropdown-menu">
+                <a href="dashboard.html">
+                    <button class="menu-btn">Configuración</button>
+                </a>
+                <button id="logout-button" class="menu-btn">Cerrar sesión</button>
+            </div>
+        </div>
     </nav>
+
     <main>
-      <section class="hero-section animate-on-scroll">
-        <h1 class="fade-in-up">MidasWallet</h1>
-        <div class="image-container scale-up">
-          <img
-            class="front-image"
-            src="Recursos/MidasWallet.png"
-            alt="Logo MidasWallet"
-          />
-          <img class="back-image" src="Recursos/QR.png" alt="QR Descarga" />
-        </div>
-        <p class="fade-in-up">
-          Midas Wallet es una solución innovadora para la gestión financiera
-          personal. Nace de la necesidad de transformar la relación de las
-          personas con su dinero, fusionando tecnología avanzada y un enfoque
-          centrado en el usuario.
-        </p>
-      </section>
-      <section class="features-section animate-on-scroll">
-        <h2 class="section-title slide-in-left">¿Qué hace nuestra App?</h2>
-        <div class="features-container">
-          <div class="feature-card fade-in-up">
-            <img
-              src="Recursos/registro-control.png"
-              alt="Icono de registro y control"
-              class="feature-image"
-            />
-            <h3 class="card-title">Registro y Control</h3>
-            <p>
-              Registra tus ingresos y egresos de manera disciplinada y sencilla
-              para mantener un control total.
-            </p>
-          </div>
-          <div class="feature-card fade-in-up">
-            <img
-              src="Recursos/visualizacion-inteligente.png"
-              alt="Icono de visualización inteligente"
-              class="feature-image"
-            />
-            <h3 class="card-title">Visualización Inteligente</h3>
-            <p>
-              Visualiza tu estado financiero a través de gráficas claras e
-              intuitivas para entender tus finanzas.
-            </p>
-          </div>
-          <div class="feature-card fade-in-up">
-            <img
-              src="Recursos/asesoria-personalizada.png"
-              alt="Icono de asesoría personalizada"
-              class="feature-image"
-            />
-            <h3 class="card-title">Asesoría Personalizada</h3>
-            <p>
-              Recibe consejos y advertencias personalizadas de un asistente
-              virtual de IA para tomar mejores decisiones.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section class="about-section animate-on-scroll">
-        <h2 class="section-title slide-in-right">Sobre DevUp</h2>
-        <div class="about-content">
-          <p class="fade-in-up">
-            DevUp es la empresa detrás de Midas Wallet. Nacimos con la misión de
-            empoderar a las personas para que tomen el control de su salud
-            financiera, promoviendo el aprendizaje y la toma de decisiones
-            informadas sobre su dinero.
-          </p>
-          <p class="fade-in-up">
-            Trabajamos bajo una estrategia de mercado que incluye la promoción
-            en redes sociales y la gamificación para que el aprendizaje de
-            finanzas sea una experiencia sencilla y divertida, especialmente
-            para jóvenes y estudiantes.
-          </p>
-        </div>
-      </section>
-      <section class="call-to-action animate-on-scroll">
-        <div class="buttons-container">
-          <a href="Recursos/app-debug.apk" download="app-debug.apk">
-            <button class="download-btn fade-in-up">Descargar APK</button>
-          </a>
-          <div class="warning fade-in-up">
-            <p>
-              <strong>¡Advertencia!</strong> Antes de descargar la aplicación,
-              te recomendamos leer nuestras
-              <a href="Politicas.html"
-                >Políticas de Privacidad y Términos de Uso.</a
-              >
-            </p>
-          </div>
-          <a href="Politicas.html">
-            <button class="policies-btn fade-in-up">Ver Políticas</button>
-          </a>
-        </div>
-      </section>
+        <header class="hero-section">
+            <img src="Recursos/ic_launcher_round.webp" alt="Logo MidasWallet" class="logo-header animate-on-scroll scale-up">
+            <h1 class="animate-on-scroll fade-in-up">MidasWallet</h1>
+            <p class="animate-on-scroll fade-in-up">Tu aliado en la gestión financiera personal</p>
+            <div class="buttons-container animate-on-scroll fade-in-up">
+                <a href="InicioSesion.html">
+                    <button class="download-btn">Comienza ahora</button>
+                </a>
+                <a href="Politicas.html">
+                    <button class="policies-btn">Ver políticas</button>
+                </a>
+            </div>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title animate-on-scroll slide-in-left">Características Clave</h2>
+            <div class="features-container">
+                <div class="feature-card animate-on-scroll fade-in-up">
+                    <img src="Recursos/dashboard-icon.png" alt="Dashboard" class="feature-image">
+                    <h3 class="card-title">Dashboard Personalizado</h3>
+                    <p>Obtén una vista clara de tus finanzas con un panel intuitivo y visualmente atractivo.</p>
+                </div>
+                <div class="feature-card animate-on-scroll fade-in-up">
+                    <img src="Recursos/ai-icon.png" alt="Asistente de IA" class="feature-image">
+                    <h3 class="card-title">Asistente de IA</h3>
+                    <p>Recibe sugerencias inteligentes para optimizar tus gastos y alcanzar tus metas financieras.</p>
+                </div>
+                <div class="feature-card animate-on-scroll fade-in-up">
+                    <img src="Recursos/security-icon.png" alt="Seguridad" class="feature-image">
+                    <h3 class="card-title">Seguridad</h3>
+                    <p>Protegemos tus datos financieros con las últimas tecnologías de seguridad.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title animate-on-scroll slide-in-left">Quiénes Somos</h2>
+            <div class="about-container">
+                <p class="animate-on-scroll fade-in-up">
+                    Somos un equipo de apasionados por la tecnología y las finanzas, comprometidos a crear
+                    herramientas que simplifiquen tu vida y te ayuden a tomar el control de tu futuro financiero.
+                </p>
+            </div>
+        </section>
     </main>
+
     <footer>
-      <p>Derechos reservados 2025 DevUp©</p>
+        <p>Derechos reservados 2025 DevUp©</p>
     </footer>
-    <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-      import {
-        getAuth,
-        signOut,
-        onAuthStateChanged,
-      } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
-      const firebaseConfig = {
-        apiKey: "AIzaSyBxIAoBbCAY67vWVBWqosyqZrco0br5FYg",
-        authDomain: "midaswallet-b5bf0.firebaseapp.com",
-        projectId: "midaswallet-b5bf0",
-        storageBucket: "midaswallet-b5bf0.firebasestorage.app",
-        messagingSenderId: "241859863208",
-        appId: "1:241859863208:web:4ec137b9e95bf991d8189d",
-        measurementId: "G-HZ0WY0K344",
-      };
-      const app = initializeApp(firebaseConfig);
-      const auth = getAuth(app);
-      const loginLink = document.getElementById("login-link");
-      const signupLink = document.getElementById("signup-link");
-      const userProfileBtn = document.getElementById("user-profile-btn");
-      const userPhoto = document.getElementById("user-photo");
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          loginLink.style.display = "none";
-          signupLink.style.display = "none";
-          userProfileBtn.style.display = "block";
-          if (user.photoURL) {
-            userPhoto.src = user.photoURL;
-          } else {
-            userPhoto.src = "Recursos/user.png";
-          }
-        } else {
-          loginLink.style.display = "block";
-          signupLink.style.display = "block";
-          userProfileBtn.style.display = "none";
-        }
-      });
-      userProfileBtn.addEventListener("click", async () => {
-        if (confirm("¿Estás seguro que quieres cerrar sesión?")) {
-          try {
-            await signOut(auth);
-            alert("Has cerrado sesión.");
-          } catch (error) {
-            console.error("Error al cerrar sesión: ", error);
-          }
-        }
-      });
-      const imageContainer = document.querySelector(".image-container");
-      imageContainer.addEventListener("click", () => {
-        imageContainer.classList.toggle("flipped");
-      });
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "TU_API_KEY",
+            authDomain: "TU_AUTH_DOMAIN",
+            projectId: "TU_PROJECT_ID",
+            storageBucket: "TU_STORAGE_BUCKET",
+            messagingSenderId: "TU_MESSAGING_SENDER_ID",
+            appId: "TU_APP_ID"
+        };
+
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = app.auth();
+
+        const authButtonsContainer = document.getElementById('auth-buttons-container');
+        const userProfileMenuContainer = document.getElementById('user-profile-menu-container');
+        const userProfileButton = document.getElementById('user-profile-button');
+        const userPhoto = document.getElementById('user-photo');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+        const logoutButton = document.getElementById('logout-button');
+
+        auth.onAuthStateChanged(user => {
+            if (user) {
+                // El usuario está logueado
+                authButtonsContainer.classList.add('hidden');
+                userProfileMenuContainer.classList.remove('hidden');
+                if (user.photoURL) {
+                    userPhoto.src = user.photoURL;
+                }
             } else {
-              entry.target.classList.remove("is-visible");
+                // El usuario no está logueado
+                authButtonsContainer.classList.remove('hidden');
+                userProfileMenuContainer.classList.add('hidden');
             }
-          });
-        },
-        {
-          rootMargin: "0px 0px -10% 0px",
-        }
-      );
-      const animatedSections = document.querySelectorAll(".animate-on-scroll");
-      animatedSections.forEach((el) => observer.observe(el));
+        });
+
+        userProfileButton.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('show');
+        });
+
+        window.addEventListener('click', (event) => {
+            if (!userProfileButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                if (dropdownMenu.classList.contains('show')) {
+                    dropdownMenu.classList.remove('show');
+                }
+            }
+        });
+
+        logoutButton.addEventListener('click', async () => {
+            await auth.signOut();
+            // La función onAuthStateChanged se encargará de ocultar el menú y mostrar los botones de inicio de sesión.
+        });
     </script>
-  </body>
+</body>
 </html>
