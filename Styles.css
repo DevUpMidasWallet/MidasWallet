@@ -35,6 +35,7 @@ body {
 }
 .navbar-links {
   display: flex;
+  align-items: center;
   gap: 10px;
 }
 .nav-btn {
@@ -75,10 +76,10 @@ body {
   height: 50px;
   border-radius: 50%;
   border: 1px solid #ffd700;
-  transition: transform 0.3s ease;
+  transition: box-shadow 0.3s ease;
 }
 .profile-photo:hover {
-  transform: scale(1.1);
+  box-shadow: 0 0 0 4px #ffd700;
 }
 .dropdown-menu {
   display: none;
@@ -526,4 +527,14 @@ footer p {
   font-weight: bold;
   margin-top: 10px;
   min-height: 20px;
+}
+.download-nav-btn {
+  background-color: #4caf50;
+  color: #fff;
+  border-color: #4caf50;
+}
+.download-nav-btn:hover {
+  background-color: #45a049;
+  color: #fff;
+  transform: none;
 }
