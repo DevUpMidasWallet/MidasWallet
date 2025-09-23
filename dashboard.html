@@ -1,148 +1,191 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MidasWallet - Configuración</title>
-    <link rel="icon" href="Recursos/ic_launcher_round.webp" type="image/x-icon">
-    <link rel="stylesheet" href="Styles.css">
-</head>
-<body>
+    <link
+      rel="icon"
+      href="Recursos/ic_launcher_round.webp"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="Styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
     <nav class="navbar">
-        <a href="index.html" class="navbar-logo">
-            <img src="Recursos/ic_launcher_round.webp" alt="Logo MidasWallet" class="logo">
-        </a>
-        <div class="user-profile-menu-container">
-            <button class="user-profile-button" id="user-profile-button">
-                <img id="user-photo" src="Recursos/default-user.png" alt="Foto de perfil">
-            </button>
-            <div class="dropdown-menu" id="dropdown-menu">
-                <a href="dashboard.html">
-                    <button class="menu-btn">Configuración</button>
-                </a>
-                <button id="logout-button" class="menu-btn">Cerrar sesión</button>
-            </div>
+      <a href="index.html" class="navbar-logo">
+        <img
+          src="Recursos/ic_launcher_round.webp"
+          alt="Logo MidasWallet"
+          class="logo"
+        />
+      </a>
+      <div class="user-profile-menu-container">
+        <button class="nav-btn profile-btn" id="user-profile-btn">
+          <img
+            id="user-photo"
+            src=""
+            alt="Foto de perfil"
+            class="profile-photo"
+          />
+        </button>
+        <div class="dropdown-menu" id="dropdown-menu">
+          <a href="dashboard.html" class="menu-item">
+            <i class="fas fa-user-circle"></i> Perfil
+          </a>
+          <a href="#" id="logout-button" class="menu-item">
+            <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+          </a>
         </div>
+      </div>
     </nav>
 
     <main class="settings-main">
-        <section class="settings-section">
-            <h1 class="settings-title">Configuración de la cuenta</h1>
-        </section>
+      <section class="settings-section">
+        <h1 class="settings-title">Configuración de la cuenta</h1>
+      </section>
 
-        <section class="settings-section">
-            <h2>Cambiar contraseña</h2>
-            <p>Se enviará un correo electrónico a tu dirección para restablecer tu contraseña. Sigue las instrucciones del correo para cambiarla.</p>
-            <button id="reset-password-button" class="submit-btn">Enviar correo de recuperación</button>
-            <p id="password-message" class="message"></p>
-        </section>
+      <section class="settings-section">
+        <h2>Cambiar contraseña</h2>
+        <p>
+          Se enviará un correo electrónico a tu dirección para restablecer tu
+          contraseña. Sigue las instrucciones del correo para cambiarla.
+        </p>
+        <button id="reset-password-button" class="submit-btn">
+          Enviar correo de recuperación
+        </button>
+        <p id="password-message" class="message"></p>
+      </section>
 
-        <section class="settings-section">
-            <h2>Políticas de privacidad</h2>
-            <p>Lee nuestras políticas de privacidad y términos de servicio para entender cómo protegemos tus datos.</p>
-            <a href="Politicas.html">
-                <button class="submit-btn">Ver políticas</button>
-            </a>
-        </section>
+      <section class="settings-section">
+        <h2>Políticas de privacidad</h2>
+        <p>
+          Lee nuestras políticas de privacidad y términos de servicio para
+          entender cómo protegemos tus datos.
+        </p>
+        <a href="Politicas.html">
+          <button class="submit-btn">Ver políticas</button>
+        </a>
+      </section>
 
-        <section class="settings-section">
-            <h2>Eliminar cuenta</h2>
-            <p class="warning-text">Esta acción es irreversible y eliminará todos tus datos. Procede con precaución.</p>
-            <button id="delete-account-button" class="delete-btn">Eliminar cuenta</button>
-            <p id="delete-message" class="message"></p>
-        </section>
+      <section class="settings-section">
+        <h2>Eliminar cuenta</h2>
+        <p class="warning-text">
+          Esta acción es irreversible y eliminará todos tus datos. Procede con
+          precaución.
+        </p>
+        <button id="delete-account-button" class="delete-btn">
+          Eliminar cuenta
+        </button>
+        <p id="delete-message" class="message"></p>
+      </section>
     </main>
 
     <footer>
-        <p>Derechos reservados 2025 DevUp©</p>
+      <p>Derechos reservados 2025 DevUp©</p>
     </footer>
 
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
-    <script>
-        const firebaseConfig = {
-            apiKey: "TU_API_KEY",
-            authDomain: "TU_AUTH_DOMAIN",
-            projectId: "TU_PROJECT_ID",
-            storageBucket: "TU_STORAGE_BUCKET",
-            messagingSenderId: "TU_MESSAGING_SENDER_ID",
-            appId: "TU_APP_ID"
-        };
-
-        const app = firebase.initializeApp(firebaseConfig);
-        const auth = app.auth();
-
-        const userPhoto = document.getElementById('user-photo');
-        const userProfileButton = document.getElementById('user-profile-button');
-        const dropdownMenu = document.getElementById('dropdown-menu');
-        const logoutButton = document.getElementById('logout-button');
-
-        const resetPasswordButton = document.getElementById('reset-password-button');
-        const passwordMessage = document.getElementById('password-message');
-        const deleteAccountButton = document.getElementById('delete-account-button');
-        const deleteMessage = document.getElementById('delete-message');
-
-        auth.onAuthStateChanged(user => {
-            if (user) {
-                if (user.photoURL) {
-                    userPhoto.src = user.photoURL;
-                }
-            } else {
-                window.location.href = 'InicioSesion.html';
-            }
-        });
-
-        userProfileButton.addEventListener('click', () => {
-            dropdownMenu.classList.toggle('show');
-        });
-
-        window.addEventListener('click', (event) => {
-            if (!userProfileButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-                if (dropdownMenu.classList.contains('show')) {
-                    dropdownMenu.classList.remove('show');
-                }
-            }
-        });
-
-        logoutButton.addEventListener('click', async () => {
-            await auth.signOut();
-            window.location.href = 'InicioSesion.html';
-        });
-
-        resetPasswordButton.addEventListener('click', async () => {
-            const user = auth.currentUser;
-            if (user && user.email) {
-                try {
-                    await auth.sendPasswordResetEmail(user.email);
-                    passwordMessage.textContent = 'Correo de recuperación enviado. Revisa tu bandeja de entrada.';
-                    passwordMessage.style.color = '#4CAF50';
-                } catch (error) {
-                    passwordMessage.textContent = 'Error al enviar el correo: ' + error.message;
-                    passwordMessage.style.color = '#e74c3c';
-                }
-            } else {
-                passwordMessage.textContent = 'No se pudo encontrar la dirección de correo electrónico del usuario.';
-                passwordMessage.style.color = '#e74c3c';
-            }
-        });
-
-        deleteAccountButton.addEventListener('click', async () => {
-            const user = auth.currentUser;
-
-            if (confirm('¿Estás seguro de que quieres eliminar tu cuenta? Esta acción es irreversible.')) {
-                try {
-                    await user.delete();
-                    deleteMessage.textContent = 'Cuenta eliminada. Redirigiendo...';
-                    deleteMessage.style.color = '#4CAF50';
-                    setTimeout(() => {
-                        window.location.href = 'InicioSesion.html';
-                    }, 2000);
-                } catch (error) {
-                    deleteMessage.textContent = 'Error: ' + error.message + '. Debes haber iniciado sesión recientemente para eliminar tu cuenta.';
-                    deleteMessage.style.color = '#e74c3c';
-                }
-            }
-        });
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+      import {
+        getAuth,
+        signOut,
+        onAuthStateChanged,
+        sendPasswordResetEmail,
+        deleteUser,
+      } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js";
+      const firebaseConfig = {
+        apiKey: "AIzaSyBxIAoBbCAY67vWVBWqosyqZrco0br5FYg",
+        authDomain: "midaswallet-b5bf0.firebaseapp.com",
+        projectId: "midaswallet-b5bf0",
+        storageBucket: "midaswallet-b5bf0.firebasestorage.app",
+        messagingSenderId: "241859863208",
+        appId: "1:241859863208:web:4ec137b9e95bf991d8189d",
+        measurementId: "G-HZ0WY0K344",
+      };
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+      const userPhoto = document.getElementById("user-photo");
+      const userProfileBtn = document.getElementById("user-profile-btn");
+      const dropdownMenu = document.getElementById("dropdown-menu");
+      const logoutButton = document.getElementById("logout-button");
+      const resetPasswordButton = document.getElementById(
+        "reset-password-button"
+      );
+      const passwordMessage = document.getElementById("password-message");
+      const deleteAccountButton = document.getElementById(
+        "delete-account-button"
+      );
+      const deleteMessage = document.getElementById("delete-message");
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          userPhoto.src = user.photoURL ? user.photoURL : "Recursos/user.png";
+        } else {
+          window.location.href = "InicioSesion.html";
+        }
+      });
+      userProfileBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        dropdownMenu.classList.toggle("show");
+      });
+      window.addEventListener("click", (event) => {
+        if (
+          !userProfileBtn.contains(event.target) &&
+          !dropdownMenu.contains(event.target)
+        ) {
+          dropdownMenu.classList.remove("show");
+        }
+      });
+      logoutButton.addEventListener("click", async () => {
+        await signOut(auth);
+        window.location.href = "InicioSesion.html";
+      });
+      resetPasswordButton.addEventListener("click", async () => {
+        const user = auth.currentUser;
+        if (user && user.email) {
+          try {
+            await sendPasswordResetEmail(auth, user.email);
+            passwordMessage.textContent =
+              "Correo de recuperación enviado. Revisa tu bandeja de entrada.";
+            passwordMessage.style.color = "#4CAF50";
+          } catch (error) {
+            passwordMessage.textContent =
+              "Error al enviar el correo: " + error.message;
+            passwordMessage.style.color = "#e74c3c";
+          }
+        } else {
+          passwordMessage.textContent =
+            "No se pudo encontrar la dirección de correo electrónico del usuario.";
+          passwordMessage.style.color = "#e74c3c";
+        }
+      });
+      deleteAccountButton.addEventListener("click", async () => {
+        const user = auth.currentUser;
+        if (
+          confirm(
+            "¿Estás seguro de que quieres eliminar tu cuenta? Esta acción es irreversible."
+          )
+        ) {
+          try {
+            await deleteUser(user);
+            deleteMessage.textContent = "Cuenta eliminada. Redirigiendo...";
+            deleteMessage.style.color = "#4CAF50";
+            setTimeout(() => {
+              window.location.href = "InicioSesion.html";
+            }, 2000);
+          } catch (error) {
+            deleteMessage.textContent =
+              "Error: " +
+              error.message +
+              ". Debes haber iniciado sesión recientemente para eliminar tu cuenta.";
+            deleteMessage.style.color = "#e74c3c";
+          }
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
