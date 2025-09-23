@@ -321,6 +321,12 @@ footer p {
     text-align: left;
 }
 
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ddd;
+}
+
 .input-group input {
     width: 100%;
     padding: 10px;
@@ -520,165 +526,94 @@ footer p {
     border-radius: 5px;
     padding: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
 .dropdown-menu.show {
     display: block;
 }
 
-.dropdown-menu button {
-    background-color: #d63031;
-    color: #fff;
+.dropdown-menu .menu-btn {
+    background-color: transparent;
     border: none;
-    padding: 10px 20px;
+    color: #ddd;
+    padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
     text-align: left;
     transition: background-color 0.3s ease;
+    display: block;
+    margin-bottom: 5px;
 }
 
-.dropdown-menu button:hover {
+.dropdown-menu .menu-btn:hover {
+    background-color: #333;
+}
+
+.dropdown-menu #logout-button {
+    background-color: #d63031;
+    color: #fff;
+}
+
+.dropdown-menu #logout-button:hover {
     background-color: #c02c2c;
 }
 
-.dashboard-main {
+.settings-main {
     padding: 20px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 800px;
     box-sizing: border-box;
 }
 
-.welcome-section {
+.settings-title {
+    font-size: 2em;
     text-align: center;
     margin-bottom: 40px;
 }
 
-.welcome-section h1 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
-.welcome-section p {
-    color: #bbb;
-}
-
-.financial-summary {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.financial-summary h2 {
-    color: #FFD700;
-    font-size: 1.8em;
-    margin-bottom: 20px;
-}
-
-.summary-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-}
-
-.summary-card {
+.settings-section {
     background-color: #222;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    flex: 1 1 250px;
-    text-align: center;
-    min-width: 250px;
-    transition: transform 0.3s ease;
+    margin-bottom: 30px;
 }
 
-.summary-card:hover {
-    transform: translateY(-5px);
-}
-
-.summary-card h3 {
-    color: #cfa255;
-    font-size: 1.2em;
+.settings-section h2 {
+    color: #FFD700;
+    font-size: 1.5em;
     margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
 }
 
-.amount {
-    font-size: 1.8em;
+.message {
+    margin-top: 15px;
     font-weight: bold;
 }
 
-.income-amount {
-    color: #4CAF50;
-}
-
-.expense-amount {
-    color: #E53935;
-}
-
-.balance-amount {
-    color: #FFD700;
-}
-
-.chart-section {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto 40px;
-    background-color: #222;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.chart-section h2 {
-    color: #FFD700;
-    font-size: 1.8em;
+.warning-text {
+    color: #e74c3c;
+    font-size: 0.9em;
     margin-bottom: 20px;
 }
 
-.transaction-section {
+.delete-btn {
     width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #222;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-.transaction-section h2 {
-    color: #FFD700;
-    font-size: 1.8em;
-    margin-bottom: 20px;
-}
-
-.transaction-list {
-    list-style: none;
-    padding: 0;
-}
-
-.transaction-list li {
-    background-color: #333;
-    padding: 15px;
+    padding: 12px;
+    border: none;
     border-radius: 5px;
-    margin-bottom: 10px;
-    text-align: left;
-    border-left: 5px solid #FFD700;
+    background-color: #d63031;
+    color: #fff;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Responsividad para móviles */
-@media (max-width: 768px) {
-    .dashboard-main {
-        padding: 10px;
-    }
-
-    .welcome-section h1 {
-        font-size: 1.5em;
-    }
-
-    .summary-card {
-        min-width: 100%;
-    }
+.delete-btn:hover {
+    background-color: #c02c2c;
+    transform: translateY(-2px);
 }
