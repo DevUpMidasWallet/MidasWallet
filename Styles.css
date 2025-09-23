@@ -10,7 +10,6 @@ body {
     min-height: 100vh;
 }
 
-/* Estilos de la barra de navegación */
 .navbar {
     width: 100%;
     background-color: #111;
@@ -479,7 +478,6 @@ footer p {
     margin-top: 15px;
 }
 
-/* Animaciones */
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(20px);
@@ -567,79 +565,6 @@ footer p {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     background-color: #1a1a1a;
     text-align: center;
-}
-
-.user-profile-menu-container {
-    position: relative;
-}
-
-.user-profile-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    margin-right: 10px;
-    transition: transform 0.3s ease;
-}
-
-.user-profile-button:hover {
-    transform: scale(1.1);
-}
-
-.user-profile-button img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #FFD700;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    background-color: #222;
-    border: 1px solid #444;
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-}
-
-.dropdown-menu.show {
-    display: block;
-}
-
-.dropdown-menu a {
-    text-decoration: none;
-}
-
-.dropdown-menu .menu-btn {
-    background-color: transparent;
-    border: none;
-    color: #ddd;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
-    transition: background-color 0.3s ease;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.dropdown-menu .menu-btn:hover {
-    background-color: #333;
-}
-
-.dropdown-menu #logout-button {
-    background-color: #d63031;
-    color: #fff;
-    margin-bottom: 0;
-}
-
-.dropdown-menu #logout-button:hover {
-    background-color: #c02c2c;
 }
 
 .settings-main {
