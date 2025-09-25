@@ -14,6 +14,7 @@ href="Recursos/ic_launcher_round.webp"
 type="image/x-icon"
 />
 <link rel="stylesheet" href="Styles.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 <header class="hidden-element"></header>
@@ -38,10 +39,10 @@ class="logo"
 <a href="Registrarse.html" id="signup-link">
 <button class="nav-btn">Registrarse</button>
 </a>
+<div class="user-profile-menu-container" id="user-profile-container" style="display: none">
 <button
 id="user-profile-btn"
 class="nav-btn profile-btn"
-style="display: none"
 >
 <img
 id="user-photo"
@@ -50,6 +51,12 @@ alt="Foto de perfil"
 class="profile-photo"
 />
 </button>
+<div class="dropdown-menu" id="dropdown-menu">
+<a href="dashboard.html" class="menu-item"><i class="fas fa-user-circle"></i>Perfil</a>
+<a href="configuracion.html" class="menu-item"><i class="fas fa-cog"></i>Configuración</a>
+<a href="#" id="logout-button" class="menu-item"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</a>
+</div>
+</div>
 </div>
 </nav>
 <main>
@@ -171,13 +178,16 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const loginLink = document.getElementById("login-link");
 const signupLink = document.getElementById("signup-link");
+const userProfileContainer = document.getElementById("user-profile-container");
 const userProfileBtn = document.getElementById("user-profile-btn");
 const userPhoto = document.getElementById("user-photo");
+const dropdownMenu = document.getElementById("dropdown-menu");
+const logoutButton = document.getElementById("logout-button");
 onAuthStateChanged(auth, (user) => {
 if (user) {
 loginLink.style.display = "none";
 signupLink.style.display = "none";
-userProfileBtn.style.display = "block";
+userProfileContainer.style.display = "block";
 if (user.photoURL) {
 userPhoto.src = user.photoURL;
 } else {
@@ -186,14 +196,23 @@ userPhoto.src = "Recursos/user.png";
 } else {
 loginLink.style.display = "block";
 signupLink.style.display = "block";
-userProfileBtn.style.display = "none";
+userProfileContainer.style.display = "none";
 }
 });
-userProfileBtn.addEventListener("click", async () => {
+userProfileBtn.addEventListener("click", (event) => {
+event.stopPropagation();
+dropdownMenu.classList.toggle("show");
+});
+document.addEventListener("click", (event) => {
+if(!userProfileContainer.contains(event.target)){
+dropdownMenu.classList.remove("show");
+}
+});
+logoutButton.addEventListener("click", async () => {
 if (confirm("¿Estás seguro que quieres cerrar sesión?")) {
 try {
 await signOut(auth);
-alert("Has cerrado sesión.");
+window.location.href = "InicioSesion.html";
 } catch (error) {
 console.error("Error al cerrar sesión: ", error);
 }
