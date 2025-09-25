@@ -527,11 +527,20 @@ margin-bottom:20px;
 margin-bottom:15px;
 line-height:1.6;
 }
-.settings-section button,
-.settings-section .button-link{
-display:inline-block;
-margin-top:10px;
+/* Reglas actualizadas para estirar botones a 100% de ancho */
+.settings-section .submit-btn,
+.settings-section .delete-btn{
+width:100%; /* Estira el botón "Eliminar cuenta" y "Enviar correo" */
+box-sizing:border-box;
 }
+.settings-section a button{
+width:100%; /* Estira el botón "Ver políticas" que está dentro de un <a> */
+}
+.settings-section a{
+display:block; /* Permite que el enlace <a> que contiene el botón "Ver políticas" ocupe todo el ancho */
+margin-top:10px; /* Aplica el margen al enlace contenedor */
+}
+/* Fin de reglas actualizadas */
 .settings-title{
 font-size:2.5em;
 margin-top:0;
