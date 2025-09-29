@@ -527,20 +527,18 @@ margin-bottom:20px;
 margin-bottom:15px;
 line-height:1.6;
 }
-/* Reglas actualizadas para estirar botones a 100% de ancho */
 .settings-section .submit-btn,
 .settings-section .delete-btn{
-width:100%; /* Estira el botón "Eliminar cuenta" y "Enviar correo" */
+width:100%;
 box-sizing:border-box;
 }
 .settings-section a button{
-width:100%; /* Estira el botón "Ver políticas" que está dentro de un <a> */
+width:100%;
 }
 .settings-section a{
-display:block; /* Permite que el enlace <a> que contiene el botón "Ver políticas" ocupe todo el ancho */
-margin-top:10px; /* Aplica el margen al enlace contenedor */
+display:block;
+margin-top:10px;
 }
-/* Fin de reglas actualizadas */
 .settings-title{
 font-size:2.5em;
 margin-top:0;
@@ -561,4 +559,69 @@ border-color:#4caf50;
 background-color:#45a049;
 color:#fff;
 transform:none;
+}
+/* AJUSTES DE RESPONSIVIDAD PARA TELÉFONOS (MÁX. 600PX) */
+@media (max-width: 600px){
+main{
+padding:20px;
+margin:10px auto;
+max-width:95%;
+}
+h1{
+font-size:2em;
+margin-bottom:15px;
+}
+.section-title{
+font-size:1.8em;
+margin-bottom:30px;
+}
+.hero-section p{
+font-size:0.9em;
+padding:0 5px;
+}
+.image-container{
+width:12rem;
+height:12rem;
+}
+.feature-card{
+max-width:100%;
+margin-bottom:15px;
+}
+.features-container{
+gap:20px;
+}
+.download-btn,
+.policies-btn{
+padding:12px 20px;
+font-size:1.1em;
+}
+.warning{
+padding:15px;
+font-size:0.9em;
+}
+.login-form-container,
+.signup-form-container{
+padding:20px;
+margin:20px auto;
+}
+.settings-main{
+padding-top:20px;
+padding-bottom:20px;
+}
+.settings-section{
+padding:15px;
+margin-bottom:20px;
+}
+.settings-title{
+font-size:2em;
+}
+.settings-section h2{
+font-size:1.5em;
+margin-bottom:15px;
+}
+.submit-btn,
+.delete-btn{
+font-size:1em;
+padding:10px;
+}
 }
